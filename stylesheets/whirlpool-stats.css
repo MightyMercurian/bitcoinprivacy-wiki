@@ -1,0 +1,440 @@
+.whirlpool-stats-widget {
+  padding: 0 0 0.9rem;
+}
+
+.whirlpool-stats-widget--compact {
+  margin: 1rem 0;
+}
+
+.whirlpool-chart-widget {
+  margin: 1rem 0 1.4rem;
+}
+
+.whirlpool-stats-error {
+  border: 1px solid var(--md-typeset-color);
+  border-radius: 0.45rem;
+  padding: 0.8rem;
+  background: var(--md-code-bg-color);
+}
+
+.whirlpool-topline,
+.whirlpool-footer,
+.whirlpool-updated,
+.whirlpool-total-inline span,
+.whirlpool-summary-card span,
+.whirlpool-pool-stat-grid span,
+.whirlpool-detail-chart-heading p,
+.whirlpool-chart-latest,
+.whirlpool-chart-legend {
+  color: var(--md-default-fg-color--light);
+}
+
+.whirlpool-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+  font-size: 0.78rem;
+}
+
+.whirlpool-section,
+.whirlpool-detail-chart {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.45rem;
+  background: var(--md-code-bg-color);
+}
+
+.whirlpool-section {
+  padding: 0.8rem 0.9rem;
+}
+
+.whirlpool-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 0.75rem;
+  align-items: start;
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
+
+.whirlpool-kicker {
+  margin: 0 0 0.12rem;
+  color: var(--md-accent-fg-color);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.whirlpool-section h2,
+.whirlpool-detail-chart h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.15;
+}
+
+.whirlpool-title-mobile {
+  display: none;
+}
+
+.whirlpool-total-inline {
+  min-width: max-content;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.whirlpool-total-inline span,
+.whirlpool-summary-card span,
+.whirlpool-pool-stat-grid span {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+.whirlpool-total-inline strong {
+  display: block;
+  color: var(--md-accent-fg-color);
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
+  line-height: 1;
+}
+
+.whirlpool-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+}
+
+.whirlpool-summary-card,
+.whirlpool-pool-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.45rem;
+  background: var(--md-default-bg-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.whirlpool-summary-card {
+  padding: 0.55rem 0.65rem;
+  text-align: center;
+}
+
+.whirlpool-summary-card strong {
+  display: block;
+  color: var(--md-default-fg-color);
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.whirlpool-pool-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.whirlpool-pool-card {
+  overflow: hidden;
+}
+
+.whirlpool-pool-card-heading {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.whirlpool-pool-card-heading strong {
+  color: var(--md-accent-fg-color);
+  white-space: nowrap;
+}
+
+.whirlpool-pool-name {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  min-width: 0;
+  font-weight: 700;
+}
+
+.whirlpool-swatch {
+  display: inline-block;
+  width: 0.62rem;
+  height: 0.62rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+}
+
+.whirlpool-pool-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.whirlpool-pool-stat-grid div {
+  padding: 0.55rem 0.65rem;
+  border-right: 1px solid var(--md-default-fg-color--lightest);
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  text-align: center;
+}
+
+.whirlpool-pool-stat-grid div:nth-child(3n) {
+  border-right: 0;
+}
+
+.whirlpool-pool-stat-grid div:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+
+.whirlpool-pool-stat-grid strong {
+  display: block;
+  color: var(--md-default-fg-color);
+  font-size: 0.88rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.whirlpool-footer {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+}
+
+.whirlpool-detail-chart {
+  padding: 0.95rem;
+}
+
+.whirlpool-detail-chart-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 0.8rem;
+}
+
+.whirlpool-detail-chart-heading p {
+  max-width: 46rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.whirlpool-chart-latest {
+  min-width: max-content;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  background: var(--md-default-bg-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.whirlpool-chart-svg-wrap {
+  overflow: hidden;
+  padding-bottom: 0.25rem;
+}
+
+.whirlpool-detail-svg {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  touch-action: none;
+}
+
+.whirlpool-chart-grid-lines line {
+  stroke: var(--md-default-fg-color--lightest);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.whirlpool-chart-y-axis text,
+.whirlpool-chart-x-axis text {
+  fill: var(--md-default-fg-color--light);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-anchor: end;
+}
+
+.whirlpool-chart-x-axis text {
+  text-anchor: middle;
+}
+
+.whirlpool-detail-path {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.whirlpool-chart-hover-detail {
+  min-height: 1.6rem;
+  margin-top: 0.45rem;
+  padding: 0.42rem 0.55rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.35rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+
+.whirlpool-hover-capture {
+  fill: transparent;
+  cursor: crosshair;
+  pointer-events: all;
+}
+
+.whirlpool-hover-layer line {
+  stroke: var(--md-accent-fg-color);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.whirlpool-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+  font-size: 0.76rem;
+}
+
+.whirlpool-chart-toggle {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 999px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  padding: 0.28rem 0.5rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+.whirlpool-chart-toggle[aria-pressed="false"] {
+  opacity: 0.45;
+}
+
+@media screen and (max-width: 900px) {
+  .whirlpool-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whirlpool-pool-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whirlpool-detail-chart-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .whirlpool-chart-latest {
+    justify-self: start;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .whirlpool-stats-widget {
+    padding-top: 0;
+  }
+
+  .whirlpool-topline {
+    display: grid;
+    justify-content: start;
+  }
+
+  .whirlpool-section,
+  .whirlpool-detail-chart {
+    padding: 0.75rem;
+  }
+
+  .whirlpool-section-heading {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    justify-items: center;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  .whirlpool-kicker,
+  .whirlpool-title-desktop {
+    display: none;
+  }
+
+  .whirlpool-title-mobile {
+    display: inline;
+  }
+
+  .whirlpool-total-inline {
+    text-align: center;
+  }
+
+  .whirlpool-total-inline span,
+  .whirlpool-summary-card span,
+  .whirlpool-pool-stat-grid span {
+    font-size: 0.58rem;
+  }
+
+  .whirlpool-total-inline strong {
+    font-size: 1.2rem;
+  }
+
+  .whirlpool-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whirlpool-summary-card {
+    padding: 0.6rem;
+  }
+
+  .whirlpool-pool-card-heading {
+    align-items: flex-start;
+    padding: 0.6rem;
+  }
+
+  .whirlpool-pool-card-heading strong {
+    font-size: 0.9rem;
+  }
+
+  .whirlpool-pool-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whirlpool-pool-stat-grid div:nth-child(3n) {
+    border-right: 1px solid var(--md-default-fg-color--lightest);
+  }
+
+  .whirlpool-pool-stat-grid div:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .whirlpool-pool-stat-grid div:nth-last-child(-n + 3) {
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  }
+
+  .whirlpool-pool-stat-grid div:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .whirlpool-pool-stat-grid strong {
+    font-size: 0.82rem;
+  }
+
+  .whirlpool-detail-svg {
+    min-width: 0;
+  }
+
+  .whirlpool-chart-hover-detail {
+    font-size: 0.66rem;
+  }
+}

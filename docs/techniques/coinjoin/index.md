@@ -90,22 +90,22 @@ A CoinJoin is a [collaborative transaction](../../glossary.md#collaborative-tran
 
 === "JoinMarket"
 
-    A peer-to-peer marketplace for CoinJoin. [Makers](../../glossary.md#maker) provide liquidity and earn fees, [Takers](../../glossary.md#taker) initiate CoinJoins.
+    A peer-to-peer marketplace for CoinJoin. [Makers](../../glossary.md#maker) provide liquidity and earn fees, [Takers](../../glossary.md#taker) initiate CoinJoins. Actively developed as [JoinMarket NG](https://github.com/joinmarket-ng/joinmarket-ng), a wire-compatible reimplementation of the protocol.
 
     **Pros:**
 
-    - No central coordinator
-    - Flexible party sizes
-    - Makers earn fees
+    - No central coordinator (eliminates a whole class of coordinator attacks, not just censorship)
+    - Variable amounts (matches real payments, no doxxic change at pool entry/exit)
+    - Mixdepth-based pre-mix / post-mix separation (privacy applies to change too)
+    - Makers earn fees, takers pay a market rate
+    - Sybil-resistant via PoDLE commitments and fidelity bonds
 
     **Cons:**
-    
-    - More complex to use
-    - Requires more technical knowledge
-    - Slower to find counterparties
-    - Prone to DoS attacks
-    - Not actively maintained
-    - Single mix as taker cannot guarantee privacy increase
+
+    - Higher technical barrier than coordinator-based wallets
+    - Taker/maker role foortprint onchain
+    - Toxic change (equal amount ouptus gain privacy, but change outputs do not)
+    - Single CoinJoins are weak; the tumbler is mandatory for real privacy
 
     [Learn more about JoinMarket →](joinmarket.md)
 

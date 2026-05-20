@@ -389,7 +389,7 @@ description: Comprehensive terminology reference for Bitcoin privacy concepts.
 
 !!! success "JoinMarket"
 
-    A decentralized CoinJoin implementation using a maker-taker model. Makers offer liquidity and earn fees; takers pay for privacy. Creates transactions with varied input/output counts. Tumbler must be used for a taker to gain any privacy.
+    A decentralized CoinJoin protocol using a maker-taker model with no central coordinator. Makers offer liquidity and earn fees; takers pay for privacy and construct the CoinJoin themselves. Uses [mixdepths](#mixdepth) (isolated sub-accounts) to enforce pre-mix / post-mix separation, and [PoDLE](#podle) commitments plus [fidelity bonds](#fidelity-bond) for Sybil resistance. Actively developed as [JoinMarket NG](https://github.com/joinmarket-ng/joinmarket-ng), a wire-compatible reimplementation. The [tumbler](#tumbler) should be used for any serious privacy goal.
 
 ---
 
@@ -457,6 +457,11 @@ description: Comprehensive terminology reference for Bitcoin privacy concepts.
 !!! info "Mempool"
 
     Short for "memory pool." A pool of valid bitcoin transactions held by each node that are not yet confirmed in a block. Transactions wait here until a miner includes them.
+
+<a id="mixdepth"></a>
+!!! info "Mixdepth"
+
+    A JoinMarket concept: an isolated sub-account of the wallet, derived as `m/84'/coin'/<mixdepth>'/...`. CoinJoin inputs must come from a single mixdepth; the equal-amount output goes to the next mixdepth and change stays in the same mixdepth. Higher mixdepths therefore contain coins that have been through more CoinJoin rounds, and their change is also progressively more private. The default is 5 mixdepths. Mixdepths enforce pre-mix / post-mix separation natively in the wallet.
 
 !!! info "Mining"
 
@@ -563,6 +568,11 @@ description: Comprehensive terminology reference for Bitcoin privacy concepts.
 !!! info "P2P Transport V2"
 
     A newer Bitcoin peer-to-peer transport protocol from BIP324 that encrypts communication between nodes. It makes Bitcoin traffic harder for passive observers to inspect or fingerprint, but it does not hide your IP address like Tor.
+
+<a id="podle"></a>
+!!! info "PoDLE (Proof of Discrete Log Equivalence)"
+
+    A cryptographic commitment scheme used by JoinMarket to prevent Sybil attacks at no cost. Before a maker reveals its UTXO to a taker, the taker must commit to one of its own UTXOs (with minimum confirmations and value), proving ownership without yet revealing it. Used commitments are broadcast network-wide (`!hp2`) so they cannot be reused, which forces any attacker probing makers to spend real UTXOs.
 
 <a id="payjoin-p2ep"></a>
 !!! success "PayJoin (P2EP)"

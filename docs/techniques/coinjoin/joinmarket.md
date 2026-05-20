@@ -314,7 +314,7 @@ JoinMarket post-mix UTXOs (high-mixdepth coins) require the same care as any Coi
 - **Never mix post-mix with unmixed coins**: mixdepth separation prevents this by default; do not override it manually.
 - **Avoid consolidation**: combining post-mix UTXOs reduces the anonymity set to the intersection of the combined UTXOs. Spend them independently when possible.
 
-For broader post-mix guidance, see [Post-Mix Best Practices](../post-mix.md).
+For broader post-mix guidance that applies across CoinJoin implementations, see the [Whirlpool post-mix section](whirlpool.md#how-to-manage-postmix); the principles transfer to JoinMarket directly.
 
 ---
 

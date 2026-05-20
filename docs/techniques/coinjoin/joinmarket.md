@@ -12,7 +12,7 @@ JoinMarket is a peer-to-peer marketplace for CoinJoin on Bitcoin. Unlike other C
 
 !!! info "Other CoinJoin Implementations"
 
-    JoinMarket is one of several CoinJoin implementations. Others include [Whirlpool](whirlpool.md) (5-party, fixed denominations, centralized coordinator) and [Wasabi Wallet](wasabi.md) (WabiSabi protocol, centralized coordinator). Each has different trade-offs in terms of privacy, convenience, and censorship resistance. JoinMarket is the only widely deployed CoinJoin protocol with no central coordinator.
+    JoinMarket is one of several CoinJoin implementations. Others include [Whirlpool](whirlpool.md) (5-party, fixed denominations, centralized coordinator) and [Wasabi Wallet](wasabi.md) (WabiSabi protocol, centralized coordinator). Each has different trade-offs in terms of privacy, convenience, and censorship resistance.
 
 ---
 

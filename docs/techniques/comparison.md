@@ -63,6 +63,10 @@ A raw payment code is functional but not user-friendly. PayNyms provide:
 - Easier identity recognition
 - Simplified contact management
 
+PayNyms can be thought of as Bitcoin's analog to Ethereum Name Service (ENS), with an important privacy advantage: while an ENS name resolves to a single static [address](../glossary.md#address), a PayNym resolves to a payment code that derives a fresh address for each payment. Users get the UX of a memorable identifier without sacrificing receiver-side privacy.
+
+The directory model is also reminiscent of Keybase, which let users bind a PGP key to verified social identities. PayNym similarly binds a payment code to a memorable handle, but is Bitcoin-native and purpose-built for payments rather than general cryptographic identity.
+
 This user-friendly layer has contributed to BIP47's adoption. Privacy tools require both technical soundness and usability to achieve widespread adoption. PayNyms make BIP47 more accessible and support repeated relationships without address reuse.
 
 ---
@@ -77,7 +81,7 @@ BIP47 functions as a reusable payment handshake:
 
 **Trade-offs:**
 
-- **Notification transaction**: Requires an additional on-chain step to establish the relationship. This adds structure and an extra transaction but also creates a deliberate boundary for the relationship.
+- **Notification transaction**: Requires an additional on-chain step to establish the relationship. This adds structure and an extra transaction but also creates a deliberate boundary for the relationship. The notification fee also acts as an economic cost barrier against sybil-style spam and dust-attack abuse of the payment channel.
 - **Sender visibility**: Once a BIP47 relationship is established, the recipient can identify repeated payments from the same sender.
 - **Alternative coordination**: BIP47-style coordination can also theoretically occur through Soroban-based peer-to-peer communication, as introduced in Samourai Dojo v1.27.0, offering alternatives to the classic notification model.
 
@@ -110,7 +114,7 @@ Silent Payments operate as follows:
 
 - **Scanning burden**: Recipients must scan the [blockchain](../glossary.md#timechain) to identify incoming Silent Payments. This requires infrastructure capable of indexing and surfacing the relevant outputs.
 - **Infrastructure maturity**: Currently, there is no mainstream, self-hostable, non-experimental indexing stack that ordinary users can confidently deploy for private, local Silent Payments detection.
-- [Wallet](../glossary.md#wallet) **support**: No mainstream Bitcoin-only wallet sully supports both sending and recieving via silentpayments.
+- [Wallet](../glossary.md#wallet) **support**: No mainstream Bitcoin-only wallet fully supports both sending and receiving via Silent Payments.
 
 ---
 
@@ -122,13 +126,17 @@ Both protocols offer valid approaches to reusable private receiving. Different t
 
 ## BIP47 Strengths
 
+**Maturity:**
+
+BIP47 was published in 2015 and has had a decade of real-world deployment, multiple independent wallet implementations, and integration into production services. Silent Payments, by comparison, was finalized more recently (BIP352, 2023) and its implementations are still stabilizing.
+
 **Wallet Support:**
 
 BIP47 is supported by multiple [wallets](../glossary.md#wallet) including Samourai Wallet, Ashigaru Wallet, Stack Wallet, and Sparrow Wallet. This multi-implementation support indicates active usage beyond a single development team.
 
 **Real-World Adoption:**
 
-Services such as The Bitcoin Company, [mynymbox.io](https://mynymbox.io/), and Lincoin have integrated BIP47. BIP47 is used for donations by organizations such as [GrapheneOS](https://grapheneos.org/donate#bitcoin).
+BIP47 has been integrated across a range of production use cases: [mynymbox.io](https://mynymbox.io/) uses payment codes for repeated payments to a single recipient, and the [Lincoin](https://lincoin.com/) mining pool uses BIP47 for miner payouts — high-volume recurring on-chain settlement. Services such as [The Bitcoin Company](https://thebitcoincompany.com/) and [Dojo](https://samouraidojo.com/) use Auth47 — a BIP47-derived authentication scheme — for passwordless login. BIP47 is also used for donations by organizations such as [GrapheneOS](https://grapheneos.org/donate#bitcoin).
 
 **Ecosystem Breadth:**
 
@@ -141,6 +149,10 @@ BIP47 has expanded beyond a receiving method to support:
 **Sovereign Operating Models:**
 
 The models for scanning, wallet coordination, recovery, and contact relationships are more established and understood within the self-hosting and privacy-focused communities.
+
+**Deterministic Recovery:**
+
+The notification [transaction](../glossary.md#transaction) functions as an explicit on-chain anchor for each payment channel. A wallet restored from seed can locate notification transactions deterministically and resume detection from that point forward, rather than rescanning the entire chain with per-transaction ECDH checks.
 
 ---
 
@@ -180,7 +192,7 @@ Earlier BIP47 social and directory layers relied on centralized coordination. Ho
 
 **Scanning Complexity:**
 
-Detecting incoming Silent Payments in a sovereign manner requires infrastructure capable of indexing and identifying relevant outputs. This is more complex than looking up a familiar [address](../glossary.md#address) history.
+Detecting incoming Silent Payments in a sovereign manner requires infrastructure capable of indexing and identifying relevant outputs. Detection is not a simple address lookup — for every Bitcoin transaction, the receiver (or their server) must perform ECDH computations against the transaction's inputs to test whether any output belongs to them. This per-transaction cryptographic cost is why running detection locally without trusted infrastructure remains operationally heavy, and why wallet recovery from seed requires rescanning the full chain rather than resuming from a known anchor.
 
 **Infrastructure Maturity:**
 
@@ -213,7 +225,7 @@ Practical wallet support for both sending and receiving Silent Payments is curre
 | **Notification [Transaction](../glossary.md#transaction)** | Required | Not required |
 | **[On-chain](../glossary.md#onchain) Footprint** | Larger (notification tx) | Smaller |
 | **[Privacy](../glossary.md#privacy-score)** | Good | Better |
-| **[Wallet](../glossary.md#wallet) Support** | Established (Samourai, Sparrow) | Partial (Sparrow, BlueWallet) |
+| **[Wallet](../glossary.md#wallet) Support** | Established (Samourai, Sparrow, Stack, Ashigaru, BlueWallet) | Partial (Sparrow, Cake, BlueWallet) |
 | **Complexity** | More complex | Simpler |
 | **Scan Requirement** | None | Recipient scans [blockchain](../glossary.md#timechain) for payments |
 | **First Payment Setup** | Sender must send notification (usually) | No setup needed |
@@ -228,7 +240,7 @@ Practical wallet support for both sending and receiving Silent Payments is curre
     - **Sparrow Wallet** - Full support (Desktop)
     - **Ashigaru Wallet** - Full support (Android)
     - **Stack Wallet** - Full support (iOS/Android/Desktop)
-    - **BlueWallet** - Partial support, no PayNyms (iOS/Android/Desktop)
+    - **BlueWallet** - Partial support - send/receive, no PayNyms (iOS/Android/Desktop)
 
 === "Silent Payments Wallets"
 

@@ -227,12 +227,13 @@ Practical wallet support for both sending and receiving Silent Payments is curre
     - **Samourai Wallet** - Full support (Android)
     - **Sparrow Wallet** - Full support (Desktop)
     - **Ashigaru Wallet** - Full support (Android)
-    - **Stack Wallet** - Full support (iOS/Android)
+    - **Stack Wallet** - Full support (iOS/Android/Desktop)
+    - **BlueWallet** - Partial support, no PayNyms (iOS/Android/Desktop)
 
 === "Silent Payments Wallets"
 
     - **Sparrow Wallet** - Partial support (Desktop)
-    - **BlueWallet** - Partial support (iOS/Android)
+    - **BlueWallet** - Partial support, send only (iOS/Android/Desktop)
     - **Cake Wallet** - Full support (multi-coin iOS/Android/Desktop)
 
 ---

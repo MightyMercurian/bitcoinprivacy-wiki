@@ -63,9 +63,7 @@ A raw payment code is functional but not user-friendly. PayNyms provide:
 - Easier identity recognition
 - Simplified contact management
 
-PayNyms can be thought of as Bitcoin's analog to Ethereum Name Service (ENS), with an important privacy advantage: while an ENS name resolves to a single static [address](../glossary.md#address), a PayNym resolves to a payment code that derives a fresh address for each payment. Users get the UX of a memorable identifier without sacrificing receiver-side privacy.
-
-The directory model is also reminiscent of Keybase, which let users bind a PGP key to verified social identities. PayNym similarly binds a payment code to a memorable handle, but is Bitcoin-native and purpose-built for payments rather than general cryptographic identity.
+BIP47 introduced reusable payment codes for Bitcoin payments. PayNym extends this by attaching those codes to memorable handles, in a model reminiscent of Keybase, which linked PGP keys to verified social identities.
 
 This user-friendly layer has contributed to BIP47's adoption. Privacy tools require both technical soundness and usability to achieve widespread adoption. PayNyms make BIP47 more accessible and support repeated relationships without address reuse.
 

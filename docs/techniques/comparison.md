@@ -228,7 +228,7 @@ Practical wallet support for both sending and receiving Silent Payments is curre
     - **Sparrow Wallet** - Full support (Desktop)
     - **Ashigaru Wallet** - Full support (Android)
     - **Stack Wallet** - Full support (iOS/Android/Desktop)
-    - **BlueWallet** - Full support (iOS/Android/Desktop)
+    - **BlueWallet** - Partial support, no PayNyms (iOS/Android/Desktop)
 
 === "Silent Payments Wallets"
 

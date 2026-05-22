@@ -245,7 +245,7 @@ Practical wallet support for both sending and receiving Silent Payments is curre
 === "Silent Payments Wallets"
 
     - **Sparrow Wallet** - Partial support (Desktop)
-    - **BlueWallet** - Partial support, send only (iOS/Android/Desktop)
+    - **BlueWallet** - Partial support, no receiving (iOS/Android/Desktop)
     - **Cake Wallet** - Full support (multi-coin iOS/Android/Desktop)
 
 ---
